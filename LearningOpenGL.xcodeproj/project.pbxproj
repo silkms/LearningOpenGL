@@ -14,17 +14,19 @@
 		8EDC254B213509EE005C37C8 /* simpleVertexShader.vert in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC254A213509EE005C37C8 /* simpleVertexShader.vert */; };
 		8EDC254E2135A5A7005C37C8 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC254C2135A5A7005C37C8 /* shader.cpp */; };
 		8EDC25502135B23D005C37C8 /* simpleFragmentShader.frag in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC254F2135B23D005C37C8 /* simpleFragmentShader.frag */; };
+		8EDC25602137047B005C37C8 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8EDC255821370194005C37C8 /* shaders */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		8EDC252D2134505C005C37C8 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				8EDC25602137047B005C37C8 /* shaders in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -42,6 +44,7 @@
 		8EDC254C2135A5A7005C37C8 /* shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shader.cpp; sourceTree = "<group>"; };
 		8EDC254D2135A5A7005C37C8 /* shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = shader.hpp; sourceTree = "<group>"; };
 		8EDC254F2135B23D005C37C8 /* simpleFragmentShader.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = simpleFragmentShader.frag; sourceTree = "<group>"; };
+		8EDC255821370194005C37C8 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +81,9 @@
 		8EDC25312134505C005C37C8 /* LearningOpenGL */ = {
 			isa = PBXGroup;
 			children = (
+				8EDC255821370194005C37C8 /* shaders */,
 				8EDC25522136E5BE005C37C8 /* common */,
 				8EDC25512135B443005C37C8 /* src */,
-				8EDC254921350997005C37C8 /* shaders */,
 			);
 			path = LearningOpenGL;
 			sourceTree = "<group>";
@@ -88,6 +91,7 @@
 		8EDC2539213450E3005C37C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8EDC254921350997005C37C8 /* shaders */,
 				8EDC254421345DEB005C37C8 /* libglfw.3.3.dylib */,
 				8EDC254221345DD0005C37C8 /* libglfw3.a */,
 				8EDC254021345C51005C37C8 /* libglfw.3.3.dylib */,
@@ -151,6 +155,9 @@
 		8EDC25272134505C005C37C8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					shaders,
+				);
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Michael  Silk";
 				TargetAttributes = {

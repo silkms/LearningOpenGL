@@ -58,10 +58,7 @@ int main(int argc, const char * argv[])
     }
     
     // build the shader program from our vert and frag shaders...
-    // (figure out how to use a local path or some better way of storing this data)
-    GLuint shaderProgramID = GetShaderProgram(
-        "/Users/michael.silk/Dev/OpenGLTutorial/LearningOpenGL/LearningOpenGL/shaders/simpleVertexShader.vert",
-        "/Users/michael.silk/Dev/OpenGLTutorial/LearningOpenGL/LearningOpenGL/shaders/simpleFragmentShader.frag");
+    Shader simpleShader("simpleVertexShader.vert", "simpleFragmentShader.frag");
     
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
@@ -110,7 +107,7 @@ int main(int argc, const char * argv[])
         glClear(GL_COLOR_BUFFER_BIT);
         
         // Render
-        glUseProgram(shaderProgramID);
+        simpleShader.Use();
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         

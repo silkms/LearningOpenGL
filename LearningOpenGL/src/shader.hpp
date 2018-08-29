@@ -20,17 +20,19 @@ using namespace std;
 class Shader
 {
 public:
-    // The program ID
-    GLuint ID;
-    
     // Constructor reads and builds the shader
     Shader(const GLchar* vertexPath, const GLchar* fragmentPath);
     
+    GLuint GetID() { return ID; }
     // activate the shader
     void Use();
     void SetBool(const string &name, bool value) const;
     void SetInt(const string &name, int value) const;
     void SetFloat(const string &name, float value) const;
+private:
+    // The program ID
+    GLuint ID;
+    GLint LoadAndCompileShader(GLuint shaderID, const char* file_path);
 };
 
 #endif /* shader_hpp */

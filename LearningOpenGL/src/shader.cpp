@@ -22,57 +22,46 @@ using namespace std;
 
 #include "shader.hpp"
 
-GLint LoadAndCompileShader(GLuint shaderID, const char* file_path);
-
-GLuint GetShaderProgram(const char * vertex_file_path, const char * frag_file_path)
+// Constructor builds and compiles the shader program on the fly
+Shader::Shader(const char * vertex_file_path, const char * frag_file_path)
 {
-    // build and compile our shader program
-    // ------------------------------------
-    
     // load and compile the vertex shader
     GLuint vertexShaderID = glCreateShader(GL_VERTEX_SHADER);
     if (LoadAndCompileShader(vertexShaderID, vertex_file_path) == GL_FALSE)
-    {
-        return 0;
-    }
+        return;
     
     // load and compile the fragment shader
     GLuint fragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
     if (LoadAndCompileShader(fragmentShaderID, frag_file_path) == GL_FALSE)
-    {
-        return 0;
-    }
+        return;
     
     // Link the program
     printf("Linking program\n");
-    GLuint programID = glCreateProgram();
-    glAttachShader(programID, vertexShaderID);
-    glAttachShader(programID, fragmentShaderID);
-    glLinkProgram(programID);
+    ID = glCreateProgram();
+    glAttachShader(ID, vertexShaderID);
+    glAttachShader(ID, fragmentShaderID);
+    glLinkProgram(ID);
     
     // Check the program
     GLint result = GL_FALSE;
     int infoLogLength;
-    glGetProgramiv(programID, GL_LINK_STATUS, &result);
-    glGetProgramiv(programID, GL_INFO_LOG_LENGTH, &infoLogLength);
+    glGetProgramiv(ID, GL_LINK_STATUS, &result);
+    glGetProgramiv(ID, GL_INFO_LOG_LENGTH, &infoLogLength);
     if (infoLogLength > 0)
     {
         std::vector<char> programErrorMessage(infoLogLength+1);
-        glGetProgramInfoLog(programID, infoLogLength, NULL, &programErrorMessage[0]);
+        glGetProgramInfoLog(ID, infoLogLength, NULL, &programErrorMessage[0]);
         printf("%s\n", &programErrorMessage[0]);
     }
     
-    
-    glDetachShader(programID, vertexShaderID);
-    glDetachShader(programID, fragmentShaderID);
+    glDetachShader(ID, vertexShaderID);
+    glDetachShader(ID, fragmentShaderID);
     
     glDeleteShader(vertexShaderID);
     glDeleteShader(fragmentShaderID);
-    
-    return programID;
 }
 
-GLint LoadAndCompileShader(GLuint shaderID, const char* file_path)
+GLint Shader::LoadAndCompileShader(GLuint shaderID, const char* file_path)
 {
     // load the shader from the file path
     std::string shaderSource;
@@ -111,3 +100,27 @@ GLint LoadAndCompileShader(GLuint shaderID, const char* file_path)
     
     return result;
 }
+
+// activate the shader
+// ------------------------------------------------------------------------
+void Shader::Use()
+{
+    glUseProgram(ID);
+}
+// utility uniform functions
+// ------------------------------------------------------------------------
+void Shader::SetBool(const string &name, bool value) const
+{
+    glUniform1i(glGetUniformLocation(ID, name.c_str()), (int)value);
+}
+// ------------------------------------------------------------------------
+void Shader::SetInt(const string &name, int value) const
+{
+    glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
+}
+// ------------------------------------------------------------------------
+void Shader::SetFloat(const string &name, float value) const
+{
+    glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
+}
+
