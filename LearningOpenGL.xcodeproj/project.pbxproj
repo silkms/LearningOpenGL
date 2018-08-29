@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		8EDC25332134505C005C37C8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC25322134505C005C37C8 /* main.cpp */; };
+		8EDC253B213450E3005C37C8 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EDC253A213450E3005C37C8 /* OpenGL.framework */; };
+		8EDC253D2134510E005C37C8 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EDC253C2134510E005C37C8 /* libGLEW.2.1.0.dylib */; };
+		8EDC254721345EAA005C37C8 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EDC254421345DEB005C37C8 /* libglfw.3.3.dylib */; };
+		8EDC254B213509EE005C37C8 /* simpleVertexShader.vert in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC254A213509EE005C37C8 /* simpleVertexShader.vert */; };
+		8EDC254E2135A5A7005C37C8 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC254C2135A5A7005C37C8 /* shader.cpp */; };
+		8EDC25502135B23D005C37C8 /* simpleFragmentShader.frag in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC254F2135B23D005C37C8 /* simpleFragmentShader.frag */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +31,17 @@
 /* Begin PBXFileReference section */
 		8EDC252F2134505C005C37C8 /* LearningOpenGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearningOpenGL; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EDC25322134505C005C37C8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8EDC253A213450E3005C37C8 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		8EDC253C2134510E005C37C8 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
+		8EDC253E21345123005C37C8 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
+		8EDC254021345C51005C37C8 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = "../glfw-master/build/src/libglfw.3.3.dylib"; sourceTree = "<group>"; };
+		8EDC254221345DD0005C37C8 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../../../usr/local/lib/libglfw3.a; sourceTree = "<group>"; };
+		8EDC254421345DEB005C37C8 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
+		8EDC254821345FA4005C37C8 /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
+		8EDC254A213509EE005C37C8 /* simpleVertexShader.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = simpleVertexShader.vert; sourceTree = "<group>"; };
+		8EDC254C2135A5A7005C37C8 /* shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shader.cpp; sourceTree = "<group>"; };
+		8EDC254D2135A5A7005C37C8 /* shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = shader.hpp; sourceTree = "<group>"; };
+		8EDC254F2135B23D005C37C8 /* simpleFragmentShader.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = simpleFragmentShader.frag; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +49,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EDC254721345EAA005C37C8 /* libglfw.3.3.dylib in Frameworks */,
+				8EDC253D2134510E005C37C8 /* libGLEW.2.1.0.dylib in Frameworks */,
+				8EDC253B213450E3005C37C8 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +63,7 @@
 			children = (
 				8EDC25312134505C005C37C8 /* LearningOpenGL */,
 				8EDC25302134505C005C37C8 /* Products */,
+				8EDC2539213450E3005C37C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +78,51 @@
 		8EDC25312134505C005C37C8 /* LearningOpenGL */ = {
 			isa = PBXGroup;
 			children = (
-				8EDC25322134505C005C37C8 /* main.cpp */,
+				8EDC25522136E5BE005C37C8 /* common */,
+				8EDC25512135B443005C37C8 /* src */,
+				8EDC254921350997005C37C8 /* shaders */,
 			);
 			path = LearningOpenGL;
+			sourceTree = "<group>";
+		};
+		8EDC2539213450E3005C37C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EDC254421345DEB005C37C8 /* libglfw.3.3.dylib */,
+				8EDC254221345DD0005C37C8 /* libglfw3.a */,
+				8EDC254021345C51005C37C8 /* libglfw.3.3.dylib */,
+				8EDC253E21345123005C37C8 /* libglfw.3.2.dylib */,
+				8EDC253C2134510E005C37C8 /* libGLEW.2.1.0.dylib */,
+				8EDC253A213450E3005C37C8 /* OpenGL.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8EDC254921350997005C37C8 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				8EDC254A213509EE005C37C8 /* simpleVertexShader.vert */,
+				8EDC254F2135B23D005C37C8 /* simpleFragmentShader.frag */,
+			);
+			path = shaders;
+			sourceTree = "<group>";
+		};
+		8EDC25512135B443005C37C8 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				8EDC254C2135A5A7005C37C8 /* shader.cpp */,
+				8EDC254D2135A5A7005C37C8 /* shader.hpp */,
+				8EDC25322134505C005C37C8 /* main.cpp */,
+				8EDC254821345FA4005C37C8 /* main.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		8EDC25522136E5BE005C37C8 /* common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +181,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EDC254B213509EE005C37C8 /* simpleVertexShader.vert in Sources */,
+				8EDC254E2135A5A7005C37C8 /* shader.cpp in Sources */,
+				8EDC25502135B23D005C37C8 /* simpleFragmentShader.frag in Sources */,
 				8EDC25332134505C005C37C8 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +304,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -246,6 +318,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
