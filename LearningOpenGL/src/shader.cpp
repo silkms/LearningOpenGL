@@ -1,11 +1,3 @@
-//
-//  shaderLoading.cpp
-//  LearningOpenGL
-//
-//  Created by Michael  Silk on 8/28/18.
-//  Copyright © 2018 Michael  Silk. All rights reserved.
-//
-
 #include <stdio.h>
 #include <string>
 #include <vector>
@@ -21,6 +13,8 @@ using namespace std;
 #include <GL/glew.h>
 
 #include "shader.hpp"
+
+
 
 // Constructor builds and compiles the shader program on the fly
 Shader::Shader(const char * vertex_file_path, const char * frag_file_path)
@@ -123,4 +117,48 @@ void Shader::SetFloat(const string &name, float value) const
 {
     glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
 }
+// ------------------------------------------------------------------------
+void Shader::SetVector(const string &name, const glm::vec2 &value) const
+{
+    glUniform4fv(glGetUniformLocation(ID, name.c_str()), 1, &value[0]);
+}
+void Shader::SetVector(const string &name, float x, float y) const
+{
+    glUniform2f(glGetUniformLocation(ID, name.c_str()), x, y);
+}
+// ------------------------------------------------------------------------
+void Shader::SetVector(const string &name, const glm::vec3 &value) const
+{
+    glUniform4fv(glGetUniformLocation(ID, name.c_str()), 1, &value[0]);
+}
+void Shader::SetVector(const string &name, float x, float y, float z) const
+{
+    glUniform3f(glGetUniformLocation(ID, name.c_str()), x, y, z);
+}
+// ------------------------------------------------------------------------
+void Shader::SetVector(const string &name, const glm::vec4 &value) const
+{
+    glUniform4fv(glGetUniformLocation(ID, name.c_str()), 1, &value[0]);
+}
+void Shader::SetVector(const string &name, float x, float y, float z, float w) const
+{
+    glUniform4f(glGetUniformLocation(ID, name.c_str()), x, y, z, w);
+}
+// ------------------------------------------------------------------------
+void Shader::SetMatrix(const string &name, const glm::mat2 &mat) const
+{
+    glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
+}
+// ------------------------------------------------------------------------
+void Shader::SetMatrix(const string &name, const glm::mat3 &mat) const
+{
+    glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
+}
+// ------------------------------------------------------------------------
+void Shader::SetMatrix(const string &name, const glm::mat4 &mat) const
+{
+    glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
+}
+// ------------------------------------------------------------------------
+
 
